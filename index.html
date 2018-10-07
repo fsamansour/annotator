@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        [data-annotation] {
+            background: rgba(255, 255, 0, .3);
+            color: red;
+            position: relative;
+        }
+
+        [data-annotation]:before {
+            content: attr(data-annotation);
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -100%);
+            padding: 5px;
+            background: wheat;
+            border: 1px solid;
+            display: none;
+        }
+
+        [data-annotation]:hover {
+            background: yellow;
+        }
+
+        [data-annotation]:hover:before {
+            display: block;
+        }
+
+        #annotator_btn {
+            padding: 10px;
+            background: gray;
+            border: 1px solid;
+            position: absolute;
+            transform: translate(0, -100%);
+            display: none;
+        }
+
+        #annotator_block {
+            background: gray;
+            padding: 10px;
+            position: absolute;
+            display: none;
+        }
+
+        #annotator_text {
+            background: inherit;
+            border: none;
+            border-bottom: 1px solid;
+            padding: 5px;
+        }
+
+        #annotator_text:focus {
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+<div data-annotator-id="1"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium dolorem, tempora
+    quibusdam sunt quae
+    fugit eius consequuntur.</p>
+    <p>Magni corrupti, deserunt, voluptates odio voluptate aliquid, tenetur ipsum quo
+        suscipit voluptatem consequatur!</p>
+    <p>
+        Lorem ipsum dolor sit <span data-annotation="Annotation">Lorem</span> amet, consectetur
+        adipisicing elit. Ab architecto cumque doloremque est facere facilis,
+        <span><b>laborum maxime</b> optio quasi reprehenderit sed sit totam voluptatum. Consequatur doloribus eius ipsa nam officia.</span>
+    </p>
+</div>
+
+<span id="annotator_btn">+</span>
+<div id="annotator_block">
+    <input type="text" id="annotator_text">
+    <button id="annotator_btn_submit">Submit</button>
+</div>
+<script src="annotator.js"></script>
+</body>
+
+</html>
